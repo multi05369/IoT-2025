@@ -1,0 +1,10 @@
+[build]
+  command = "echo 'No build needed for edge functions'"
+  publish = "."
+
+[dev]
+  port = 8888
+
+[[edge_functions]]
+  function = "index"
+  path = "/*"
