@@ -7,4 +7,8 @@
 
 [[edge_functions]]
   function = "index"
-  path = "/*"
+  path = "/v1"
+
+[[edge_functions]]
+  function = "student"
+  path = "/v1/student/*"
