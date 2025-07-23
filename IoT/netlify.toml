@@ -1,9 +1,9 @@
 [build]
-  command = "echo 'No build needed for edge functions'"
-  publish = "."
+  command = "pnpm build"
+  publish = "dist"
 
-[dev]
-  port = 8888
+[build.environment]
+  NODE_VERSION = "22"
 
 [[edge_functions]]
   function = "index"

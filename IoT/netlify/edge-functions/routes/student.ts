@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
-import drizzle from '../db/drizzle'
-import { student } from '../db/schema'
+import drizzle from '../db/drizzle.ts'
+import { student } from '../db/schema.ts'
 import { eq } from 'drizzle-orm'
 
 const studentRouter = new Hono()

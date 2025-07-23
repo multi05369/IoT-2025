@@ -2,10 +2,11 @@
   "name": "IoT",
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "dev": "netlify dev",
-    "build": "echo 'No build needed for edge functions'",
-    "start": "netlify dev",
-    "drizzle": "drizzle-kit"
+    "deploy": "netlify deploy --prod",
+    "drizzle:generate": "drizzle-kit generate",
+    "drizzle:push": "drizzle-kit push"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",
