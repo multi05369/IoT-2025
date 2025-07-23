@@ -1,9 +1,6 @@
 [build]
   functions = "netlify/functions"
   edge_functions = "netlify/edge-functions"
-  
-  # Publish directory (usually not needed for APIs)
-  publish = "."
 
 [dev]
   port = 8888
