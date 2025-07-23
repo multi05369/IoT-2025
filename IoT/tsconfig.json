@@ -11,6 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["@netlify/edge-functions"]
   },
-  "include": ["netlify/edge-functions/**/*", "netlify/functions/routes", "netlify/functions/db"],
+  "include": ["netlify/edge-functions/**/*"],
   "exclude": ["node_modules"]
 }
