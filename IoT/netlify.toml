@@ -1,6 +1,18 @@
+# netlify.toml
+
+# Build settings: specifies the directory for functions
+[build]
+  # This is the directory for standard serverless functions
+  functions = "netlify/functions"
+  # This is the directory for edge functions (Netlify detects this automatically
+  # but being explicit doesn't hurt)
+  edge_functions = "netlify/edge-functions"
+
+# Local development server settings
 [dev]
   port = 8888
 
+# Your Edge Function rules
 [[edge_functions]]
   function = "index"
   path = "/v1"
