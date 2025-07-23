@@ -2,8 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import apiRouter from './routes/api.ts'
 
-const app = new Hono().basePath('/v1')
-
+const app = new Hono()
 
 app.use(
   '*',
@@ -13,7 +12,6 @@ app.use(
     allowHeaders: ['Content-Type', 'Authorization'],
   })
 )
-
 
 app.route('/', apiRouter)
 
