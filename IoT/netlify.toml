@@ -1,11 +1,17 @@
 [build]
   functions = "netlify/functions"
+  edge_functions = "netlify/edge-functions"
+  
+  # Publish directory (usually not needed for APIs)
+  publish = "."
 
 [dev]
   port = 8888
 
-# Redirect all /v1/* requests to the api function
-[[redirects]]
-  from = "/v1/*"
-  to = "/.netlify/functions/api/:splat"
-  status = 200
+[[edge_functions]]
+  function = "index"
+  path = "/v1"
+
+[[edge_functions]]
+  function = "index"
+  path = "/v1/*"
