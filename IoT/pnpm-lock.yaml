@@ -11,6 +11,9 @@ importers:
       '@neondatabase/serverless':
         specifier: ^1.0.1
         version: 1.0.1
+      '@netlify/functions':
+        specifier: ^4.1.14
+        version: 4.1.14
       dotenv:
         specifier: ^17.2.0
         version: 17.2.0
@@ -744,6 +747,10 @@ packages:
     resolution: {integrity: sha512-igbARa6gUII83lZdloe0zQzf2YLqJOZ3/3k2GMkEFFNxfLptAjvnh1z6WtFVV6bbO2IR2qOeuS2uaWRXeTNtlw==}
     engines: {node: ^14.16.0 || >=16.0.0}
 
+  '@netlify/blobs@10.0.6':
+    resolution: {integrity: sha512-KP3jSg+ipILXSXq0CfKlMzNNZtJpvkSuDF2A4F0s6w8nSyl+0UrOid9VaFdyrVvSiwBZOEE6eF6qvNqfQKYKnA==}
+    engines: {node: ^14.16.0 || >=16.0.0}
+
   '@netlify/build-info@10.0.7':
     resolution: {integrity: sha512-RZmSg0wekEUtPklRR8z6rsG5TPXRfT2EnamDBp94ZTUixDxDk07UCMBiz2hMKMg3qA6KTW6csuFNruvD3jw5Kw==}
     engines: {node: '>=18.14.0'}
@@ -773,6 +780,10 @@ packages:
     resolution: {integrity: sha512-bW8akt30XHUY3Yh4x7pB/Yis5yCafQxbfAGAAZgHlOYfG1WqlazFsTd9OvW5d8C3g3Y2H/JA2Oy03pTBFPtSkg==}
     engines: {node: ^18.14.0 || >=20}
 
+  '@netlify/dev-utils@4.0.0':
+    resolution: {integrity: sha512-WJlP9/2eo3Ij7rNLWrZun8djeoT04DC6Np0xWrzSUAytGgdgCUDAXXK5x0g8GKwSXD7cPT1oMTUvgflBHoECzw==}
+    engines: {node: ^18.14.0 || >=20}
+
   '@netlify/edge-bundler@14.2.2':
     resolution: {integrity: sha512-APXlNsMioyd1AMECuWkkxJ6eoASYwXs8T8149IuM65KhQMR40OsPpcgt/ceg/0GydXceymHqZnkNwbapqgnvOg==}
     engines: {node: '>=18.14.0'}
@@ -787,6 +798,10 @@ packages:
   '@netlify/functions-utils@6.2.0':
     resolution: {integrity: sha512-GCLjWKulGfDh7tfR28tz5lRoVBOQZL4SNac4XijCzZ2Sg93LfNUKSI9q+8yWEy5/wjNOEVp9nhZmrLoTtWpTdQ==}
     engines: {node: '>=18.14.0'}
+
+  '@netlify/functions@4.1.14':
+    resolution: {integrity: sha512-KjSXHtY2ukbjgyUF6B90yQzIzJAW6YOY19jkpWhoYyp5cGDYZ6W4Tly0IGWd/aBE3AVo28tDbZC+4/YsjM9pzw==}
+    engines: {node: '>=18.0.0'}
 
   '@netlify/git-utils@6.0.2':
     resolution: {integrity: sha512-ASp8T6ZAxL5OE0xvTTn5+tIBua5F8ruLH7oYtI/m2W/8rYb9V3qvNeenf9SnKlGj1xv6mPv8l7Tc93kmBLLofw==}
@@ -4786,6 +4801,11 @@ snapshots:
       '@netlify/dev-utils': 3.3.0
       '@netlify/runtime-utils': 2.1.0
 
+  '@netlify/blobs@10.0.6':
+    dependencies:
+      '@netlify/dev-utils': 4.0.0
+      '@netlify/runtime-utils': 2.1.0
+
   '@netlify/build-info@10.0.7':
     dependencies:
       '@bugsnag/js': 8.4.0
@@ -4920,6 +4940,24 @@ snapshots:
       uuid: 11.1.0
       write-file-atomic: 5.0.1
 
+  '@netlify/dev-utils@4.0.0':
+    dependencies:
+      '@whatwg-node/server': 0.10.10
+      ansis: 4.1.0
+      chokidar: 4.0.3
+      decache: 4.6.2
+      dot-prop: 9.0.0
+      env-paths: 3.0.0
+      find-up: 7.0.0
+      image-size: 2.0.2
+      js-image-generator: 1.0.4
+      lodash.debounce: 4.0.8
+      parse-gitignore: 2.0.0
+      semver: 7.7.2
+      tmp-promise: 3.0.3
+      uuid: 11.1.0
+      write-file-atomic: 5.0.1
+
   '@netlify/edge-bundler@14.2.2':
     dependencies:
       '@import-maps/resolve': 2.0.0
@@ -4960,6 +4998,25 @@ snapshots:
       '@netlify/zip-it-and-ship-it': 14.1.0(supports-color@10.0.0)
       cpy: 11.1.0
       path-exists: 5.0.0
+    transitivePeerDependencies:
+      - encoding
+      - rollup
+      - supports-color
+
+  '@netlify/functions@4.1.14':
+    dependencies:
+      '@netlify/blobs': 10.0.6
+      '@netlify/dev-utils': 4.0.0
+      '@netlify/types': 2.0.2
+      '@netlify/zip-it-and-ship-it': 14.1.0(supports-color@10.0.0)
+      cron-parser: 4.9.0
+      decache: 4.6.2
+      extract-zip: 2.0.1
+      is-stream: 4.0.1
+      jwt-decode: 4.0.0
+      lambda-local: 2.2.0
+      read-package-up: 11.0.0
+      source-map-support: 0.5.21
     transitivePeerDependencies:
       - encoding
       - rollup
