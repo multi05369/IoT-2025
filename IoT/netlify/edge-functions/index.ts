@@ -13,7 +13,7 @@ app.use(
   })
 )
 
-app.route('/v1', apiRouter)
+app.route('/', apiRouter)
 
 export const config = {
   runtime: 'edge',
