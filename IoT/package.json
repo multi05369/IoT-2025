@@ -3,8 +3,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "clean": "rm -rf netlify/edge-functions-dist && rm -f netlify/edge-functions/*.js netlify/edge-functions/**/*.js",
     "dev": "netlify dev",
-    "deploy": "netlify deploy --prod",
+    "deploy": "pnpm clean && pnpm build && netlify deploy --prod",
     "drizzle:generate": "drizzle-kit generate",
     "drizzle:push": "drizzle-kit push"
   },
@@ -16,6 +17,7 @@
     "hono": "^4.8.5"
   },
   "devDependencies": {
+    "@netlify/edge-functions": "^2.16.1",
     "@types/node": "^20.11.17",
     "netlify-cli": "^22.3.0",
     "tsx": "^4.7.1",

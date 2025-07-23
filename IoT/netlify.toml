@@ -1,10 +1,10 @@
 [build]
-  command = "pnpm build"
-  publish = "dist"
+  command = "tsc"
 
 [build.environment]
   NODE_VERSION = "22"
 
-[[edge_functions]]
-  function = "index"
-  path = "/*"
+[[redirects]]
+  from = "/v1/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200

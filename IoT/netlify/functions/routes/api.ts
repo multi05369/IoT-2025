@@ -1,6 +1,5 @@
 import { Hono } from 'hono'
-import studentRouter from './student.ts'
-import { env } from 'hono/adapter'
+import studentRouter from './student.js'
 import { bearerAuth } from 'hono/bearer-auth'
 
 const apiRouter = new Hono()
@@ -15,8 +14,8 @@ apiRouter.use(
   "*",
   bearerAuth({
     verifyToken: async (token, c) => {
-      const { API_SECRET } = env<{ API_SECRET: string }>(c)
-      return token === API_SECRET
+      const apiSecret = process.env.API_SECRET
+      return token === apiSecret
     },
   })
 )
