@@ -7,11 +7,11 @@
 # Redirect all /v1/* requests to the api function
 [[redirects]]
   from = "/v1/*"
-  to = "/.netlify/functions/api/:splat"
+  to = "/netlify/functions/api/:splat"
   status = 200
 
 # Optional: Redirect root API calls
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/api/:splat"
+  to = "/netlify/functions/api/:splat"
   status = 200
