@@ -1,18 +1,20 @@
-# IoT/netlify.toml
+# /IoT/netlify.toml
 
-# Build settings
 [build]
-  # Directory for standard serverless functions (good practice to have)
   functions = "netlify/functions"
-  # Directory for edge functions
   edge_functions = "netlify/edge-functions"
 
-# Local development server settings
 [dev]
   port = 8888
 
-# This single rule directs all traffic under /v1/*
-# to your main router file: index.ts
+# --- CORRECTED EDGE FUNCTION RULES ---
+
+# Rule 1: Handles the base path, e.g., GET /v1
+[[edge_functions]]
+  function = "index"
+  path = "/v1"
+
+# Rule 2: Handles all sub-paths, e.g., GET /v1/student/123
 [[edge_functions]]
   function = "index"
   path = "/v1/*"
