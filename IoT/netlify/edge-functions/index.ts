@@ -1,3 +1,4 @@
+// netlify/edge-functions/index.ts
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import apiRouter from './routes/api.ts'
@@ -13,7 +14,8 @@ app.use(
   })
 )
 
-app.route('/v1', apiRouter)
+// Mount your API router at root since /v1 is handled by netlify.toml
+app.route('/', apiRouter)
 
 export const config = {
   runtime: 'edge',
