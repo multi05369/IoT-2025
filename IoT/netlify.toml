@@ -1,18 +1,22 @@
-# IoT/netlify.toml
+# netlify.toml
 
-# Build settings
+# Build settings: specifies the directory for functions
 [build]
-  # Directory for standard serverless functions (good practice to have)
+  # This is the directory for standard serverless functions
   functions = "netlify/functions"
-  # Directory for edge functions
+  # This is the directory for edge functions (Netlify detects this automatically
+  # but being explicit doesn't hurt)
   edge_functions = "netlify/edge-functions"
 
 # Local development server settings
 [dev]
   port = 8888
 
-# This single rule directs all traffic under /v1/*
-# to your main router file: index.ts
+# Your Edge Function rules
 [[edge_functions]]
   function = "index"
-  path = "/v1/*"
+  path = "/v1"
+
+[[edge_functions]]
+  function = "student"
+  path = "/v1/student/*"
