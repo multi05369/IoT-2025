@@ -2,18 +2,20 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import apiRouter from './routes/api.ts'
 
-const app = new Hono()
+const app = new Hono().basePath('/v1')
+
 
 app.use(
   '*',
   cors({
     origin: '*',
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowHeaders: ['Content-Type'],
+    allowHeaders: ['Content-Type', 'Authorization'],
   })
 )
 
-app.route('/v1', apiRouter)
+
+app.route('/', apiRouter)
 
 export const config = {
   runtime: 'edge',
