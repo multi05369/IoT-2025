@@ -1,3 +1,5 @@
+# /IoT/netlify.toml
+
 [build]
   functions = "netlify/functions"
   edge_functions = "netlify/edge-functions"
@@ -5,10 +7,14 @@
 [dev]
   port = 8888
 
+# --- CORRECTED EDGE FUNCTION RULES ---
+
+# Rule 1: Handles the base path, e.g., GET /v1
 [[edge_functions]]
   function = "index"
   path = "/v1"
 
+# Rule 2: Handles all sub-paths, e.g., GET /v1/student/123
 [[edge_functions]]
   function = "index"
   path = "/v1/*"
