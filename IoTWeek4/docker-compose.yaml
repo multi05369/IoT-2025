@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./02-1-database-crud-sqlite
+    env_file:
+      - ./02-1-database-crud-sqlite/.env
+    volumes:
+      - ./02-1-database-crud-sqlite/db.sqlite:/app/db.sqlite
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./03-react-crud
+    env_file:
+      - ./03-react-crud/.env
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
